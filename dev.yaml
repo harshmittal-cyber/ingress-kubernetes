@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: django-deployment2
+  namespace: harsh
+  labels:
+    app: django-blog
+spec:
+  replicas: 2
+  selector: 
+    matchLabels:
+      app: django-blog
+  template:
+    metadata:
+      labels:
+        app: django-blog
+    spec:
+      containers:
+      - name: harshmittal18
+        image: harshmittal18/harsh:1.0
+        ports:
+        - containerPort: 8000
